@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRPAST | Eco-Friendly Solutions</title>
+  <meta name="description" content="IRPAST delivers eco-friendly solutions through modern sustainable products and thoughtful innovation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f6f1;
+      --bg-elevated: rgba(255, 255, 255, 0.68);
+      --bg-strong: rgba(255, 255, 255, 0.9);
+      --surface: #ffffff;
+      --surface-muted: #edf3eb;
+      --text: #173126;
+      --text-soft: #50685d;
+      --line: rgba(34, 77, 54, 0.12);
+      --primary: #2d8f53;
+      --primary-dark: #1e6a3c;
+      --accent: #7ecb8d;
+      --shadow: 0 20px 50px rgba(33, 73, 51, 0.12);
+      --hero-overlay: linear-gradient(135deg, rgba(12, 42, 23, 0.72), rgba(33, 89, 54, 0.38));
+      --section-padding: 88px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: min(1180px, calc(100% - 32px));
+      --transition: 220ms ease;
+    }
+    body.dark-mode {
+      color-scheme: dark;
+      --bg: #0b1610;
+      --bg-elevated: rgba(18, 33, 24, 0.72);
+      --bg-strong: rgba(15, 28, 20, 0.9);
+      --surface: #122117;
+      --surface-muted: #163020;
+      --text: #eef8f0;
+      --text-soft: #a6c1ae;
+      --line: rgba(152, 210, 170, 0.16);
+      --primary: #59c47d;
+      --primary-dark: #41a866;
+      --accent: #86d9a2;
+      --shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+      --hero-overlay: linear-gradient(135deg, rgba(4, 9, 7, 0.78), rgba(23, 58, 38, 0.48));
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(126, 203, 141, 0.22), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(45, 143, 83, 0.12), transparent 22%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background-color var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+    body.menu-open,
+    body.drawer-open,
+    body.modal-open {
+      overflow: hidden;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+    .section {
+      padding: var(--section-padding) 0;
+      scroll-margin-top: 90px;
+    }
+    .section-header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 38px;
+      max-width: 680px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      backdrop-filter: blur(16px);
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    body.dark-mode .eyebrow {
+      color: var(--accent);
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Poppins", "Inter", Arial, sans-serif;
+      line-height: 1.1;
+    }
+    h1 {
+      font-size: clamp(3.2rem, 10vw, 6.2rem);
+      font-weight: 700;
+    }
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    p {
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+    .pill-button,
+    .icon-button,
+    .nav-link,
+    .product-button,
+    .checkout-button,
+    .secondary-button,
+    .submit-button {
+      transition: transform var(--transition), background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition), opacity var(--transition);
+    }
+    .pill-button,
+    .product-button,
+    .checkout-button,
+    .submit-button {
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 24px;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(45, 143, 83, 0.24);
+    }
+    .pill-button:hover,
+    .product-button:hover,
+    .checkout-button:hover,
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(45, 143, 83, 0.28);
+    }
+    .secondary-button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      backdrop-filter: blur(16px);
+      color: var(--text);
+      cursor: pointer;
+      min-height: 50px;
+      padding: 0 22px;
+      font-weight: 600;
+    }
+    .secondary-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 143, 83, 0.26);
+    }
+    .icon-button {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-elevated);
+      backdrop-filter: blur(16px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .icon-button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 143, 83, 0.26);
+    }
+    .site-loader {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(243, 246, 241, 0.96), rgba(221, 239, 226, 0.94));
+      display: grid;
+      place-items: center;
+      z-index: 2000;
+      transition: opacity 300ms ease, visibility 300ms ease;
+    }
+    body.dark-mode .site-loader {
+      background: linear-gradient(160deg, rgba(11, 22, 16, 0.96), rgba(17, 40, 28, 0.94));
+    }
+    .site-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-mark {
+      display: grid;
+      place-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    .loader-ring {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 4px solid rgba(45, 143, 83, 0.18);
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+      box-shadow: inset 0 0 18px rgba(45, 143, 83, 0.12);
+    }
+    .loader-mark strong {
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      padding: 16px 0;
+      background: rgba(243, 246, 241, 0.2);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: background-color var(--transition), border-color var(--transition), padding var(--transition);
+    }
+    body.dark-mode .navbar {
+      background: rgba(11, 22, 16, 0.2);
+    }
+    .navbar.scrolled {
+      padding: 10px 0;
+      border-color: var(--line);
+      background: rgba(243, 246, 241, 0.72);
+    }
+    body.dark-mode .navbar.scrolled {
+      background: rgba(11, 22, 16, 0.74);
+    }
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(45, 143, 83, 0.16), rgba(126, 203, 141, 0.25));
+      border: 1px solid rgba(45, 143, 83, 0.16);
+      color: var(--primary-dark);
+      flex-shrink: 0;
+    }
+    body.dark-mode .brand-badge {
+      color: var(--accent);
+    }
+    .brand-copy {
+      display: grid;
+      line-height: 1.05;
+    }
+    .brand-copy strong {
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+    .brand-copy span {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--text-soft);
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text);
+      background: rgba(45, 143, 83, 0.09);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .cart-button {
+      position: relative;
+    }
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff826d, #ff5a45);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(255, 90, 69, 0.22);
+    }
+    .menu-toggle {
+      display: none;
+    }
+    .hero {
+      padding: 40px 0 64px;
+    }
+    .hero-shell {
+      position: relative;
+      min-height: 82vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        var(--hero-overlay),
+        url("https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1600&q=80");
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.02);
+      z-index: -2;
+    }
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 48%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(9, 24, 16, 0.54));
+      z-index: -1;
+    }
+    .hero-content {
+      display: grid;
+      gap: 28px;
+      max-width: 640px;
+      padding: clamp(28px, 4vw, 44px);
+      margin: clamp(16px, 3vw, 26px);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+      color: #fff;
+    }
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+    }
+    .hero-copy p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.05rem;
+      max-width: 56ch;
+    }
+    .hero-actions,
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+    .hero-stat {
+      min-width: 150px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(16px);
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-stat span {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .shop-grid,
+    .goals-grid,
+    .collab-grid,
+    .contact-grid,
+    .story-grid {
+      display: grid;
+      gap: 24px;
+    }
+    .shop-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .product-card,
+    .story-card,
+    .goal-card,
+    .collab-card,
+    .contact-card {
+      background: var(--bg-elevated);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+    .product-card {
+      overflow: hidden;
+      display: grid;
+    }
+    .product-media {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 350ms ease;
+    }
+    .product-card:hover .product-media img {
+      transform: scale(1.05);
+    }
+    .product-body {
+      display: grid;
+      gap: 14px;
+      padding: 22px;
+    }
+    .product-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .product-top span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(45, 143, 83, 0.1);
+      color: var(--primary-dark);
+      font-size: 0.83rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    body.dark-mode .product-top span {
+      color: var(--accent);
+      background: rgba(126, 203, 141, 0.12);
+    }
+    .product-body p {
+      font-size: 0.95rem;
+    }
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .story-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: stretch;
+    }
+    .story-card {
+      padding: 30px;
+      display: grid;
+      gap: 18px;
+    }
+    .story-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .story-list li {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      color: var(--text-soft);
+    }
+    .bullet-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      flex-shrink: 0;
+    }
+    .story-metrics {
+      display: grid;
+      gap: 18px;
+    }
+    .metric-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(45, 143, 83, 0.12), rgba(126, 203, 141, 0.06));
+      border: 1px solid rgba(45, 143, 83, 0.14);
+    }
+    body.dark-mode .metric-card {
+      background: linear-gradient(135deg, rgba(89, 196, 125, 0.16), rgba(134, 217, 162, 0.07));
+      border-color: rgba(126, 203, 141, 0.14);
+    }
+    .metric-card strong {
+      display: block;
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+    .goals-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .goal-card {
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+      min-height: 100%;
+    }
+    .goal-icon,
+    .collab-icon,
+    .contact-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(45, 143, 83, 0.16), rgba(126, 203, 141, 0.14));
+      color: var(--primary-dark);
+    }
+    body.dark-mode .goal-icon,
+    body.dark-mode .collab-icon,
+    body.dark-mode .contact-icon {
+      color: var(--accent);
+    }
+    .goal-highlight {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .goal-highlight strong {
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .collab-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .collab-card {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      text-align: left;
+      min-height: 100%;
+    }
+    .collab-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-muted);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .collab-banner {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(45, 143, 83, 0.14), rgba(126, 203, 141, 0.08));
+      border: 1px solid rgba(45, 143, 83, 0.14);
+      box-shadow: var(--shadow);
+    }
+    body.dark-mode .collab-banner {
+      background: linear-gradient(135deg, rgba(89, 196, 125, 0.16), rgba(134, 217, 162, 0.08));
+      border-color: rgba(126, 203, 141, 0.14);
+    }
+    .contact-grid {
+      grid-template-columns: 0.88fr 1.12fr;
+      align-items: start;
+    }
+    .contact-card {
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+    }
+    .contact-stack {
+      display: grid;
+      gap: 14px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-strong);
+      color: var(--text);
+      font-weight: 500;
+    }
+    .social-link:hover {
+      border-color: rgba(45, 143, 83, 0.26);
+      transform: translateY(-2px);
+    }
+    .contact-form,
+    .checkout-form {
+      display: grid;
+      gap: 18px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .field label {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--bg-strong);
+      color: var(--text);
+      padding: 15px 16px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    }
+    .field textarea {
+      min-height: 152px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(45, 143, 83, 0.42);
+      box-shadow: 0 0 0 4px rgba(45, 143, 83, 0.1);
+    }
+    .field-error {
+      color: #d94841;
+      font-size: 0.86rem;
+      min-height: 1.1em;
+    }
+    body.dark-mode .field-error {
+      color: #ff9388;
+    }
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .payment-option {
+      position: relative;
+    }
+    .payment-option input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .payment-label {
+      min-height: 92px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--bg-strong);
+      display: grid;
+      gap: 10px;
+      align-content: center;
+      justify-items: center;
+      padding: 18px;
+      text-align: center;
+      color: var(--text-soft);
+      font-weight: 600;
+      transition: border-color var(--transition), background-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .payment-option input:checked + .payment-label {
+      color: var(--text);
+      border-color: rgba(45, 143, 83, 0.4);
+      background: linear-gradient(135deg, rgba(45, 143, 83, 0.14), rgba(126, 203, 141, 0.08));
+      box-shadow: 0 14px 30px rgba(45, 143, 83, 0.12);
+      transform: translateY(-2px);
+    }
+    .footer {
+      padding: 28px 0 40px;
+    }
+    .footer-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 26px;
+      border-radius: 28px;
+      background: var(--bg-elevated);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+    .footer-links,
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--text-soft);
+    }
+    .footer-social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      background: var(--bg-strong);
+      color: var(--text);
+      transition: transform var(--transition), border-color var(--transition), background-color var(--transition);
+    }
+    .footer-social-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 143, 83, 0.26);
+    }
+    .drawer-backdrop,
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 18, 14, 0.48);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 240ms ease;
+      z-index: 1200;
+    }
+    .drawer-backdrop.open,
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 100%);
+      height: 100vh;
+      background: var(--surface);
+      color: var(--text);
+      transform: translateX(102%);
+      transition: transform 280ms ease;
+      z-index: 1300;
+      box-shadow: -24px 0 60px rgba(0, 0, 0, 0.16);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      border-left: 1px solid var(--line);
+    }
+    body.dark-mode .cart-drawer {
+      background: #0f1b14;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .drawer-header,
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .drawer-body {
+      overflow-y: auto;
+      padding: 18px 24px 24px;
+      display: grid;
+      align-content: start;
+      gap: 16px;
+    }
+    .empty-state {
+      display: grid;
+      justify-items: start;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--surface-muted);
+      border: 1px dashed var(--line);
+      margin-top: 16px;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 22px;
+      background: var(--surface-muted);
+      border: 1px solid var(--line);
+    }
+    .cart-item-media {
+      width: 90px;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .cart-item-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cart-item-body {
+      display: grid;
+      gap: 10px;
+    }
+    .cart-item-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: var(--bg-strong);
+      border: 1px solid var(--line);
+    }
+    .qty-button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 999px;
+      background: var(--surface-muted);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .remove-button {
+      border: none;
+      background: transparent;
+      color: #db5b53;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+    .drawer-footer {
+      padding: 20px 24px 24px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 14px;
+      background: var(--bg-strong);
+    }
+    .drawer-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 1.06rem;
+      font-weight: 600;
+    }
+    .drawer-total strong {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .checkout-modal {
+      position: fixed;
+      inset: 50% auto auto 50%;
+      width: min(720px, calc(100% - 24px));
+      max-height: min(86vh, 860px);
+      overflow: auto;
+      transform: translate(-50%, -48%) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 240ms ease, opacity 240ms ease;
+      z-index: 1400;
+      border-radius: 30px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.24);
+    }
+    body.dark-mode .checkout-modal {
+      background: #0f1b14;
+    }
+    .checkout-modal.open {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-body {
+      padding: 22px 24px 28px;
+      display: grid;
+      gap: 22px;
+    }
+    .checkout-summary {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 24px;
+      background: var(--surface-muted);
+      border: 1px solid var(--line);
+    }
+    .summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .checkout-success {
+      display: none;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(45, 143, 83, 0.12);
+      border: 1px solid rgba(45, 143, 83, 0.16);
+      color: var(--text);
+    }
+    .checkout-success.visible {
+      display: grid;
+    }
+    .toast-stack {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1500;
+      display: grid;
+      gap: 12px;
+      width: min(320px, calc(100% - 36px));
+    }
+    .toast {
+      padding: 14px 16px;
+      border-radius: 20px;
+      color: #fff;
+      background: rgba(16, 29, 21, 0.92);
+      box-shadow: 0 20px 38px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      transform: translateY(12px);
+      animation: toast-in 260ms ease forwards;
+    }
+    .toast.success {
+      background: rgba(29, 89, 52, 0.96);
+    }
+    .toast.error {
+      background: rgba(144, 45, 45, 0.96);
+    }
+    @keyframes toast-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 1080px) {
+      .shop-grid,
+      .collab-grid,
+      .goals-grid,
+      .contact-grid,
+      .story-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .collab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 880px) {
+      :root {
+        --section-padding: 72px;
+      }
+      .menu-toggle {
+        display: inline-flex;
+      }
+      .nav-shell {
+        border-radius: 28px;
+      }
+      .nav-menu {
+        position: fixed;
+        inset: 88px 16px auto;
+        background: var(--bg-strong);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        display: grid;
+        gap: 8px;
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition), transform var(--transition);
+      }
+      .nav-menu.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .nav-link {
+        width: 100%;
+      }
+      .hero-shell {
+        min-height: 76vh;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .form-row,
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 680px) {
+      :root {
+        --container: min(100% - 20px, 100%);
+        --section-padding: 64px;
+      }
+      .nav-shell {
+        padding: 10px 12px;
+      }
+      .brand-copy span {
+        display: none;
+      }
+      .hero {
+        padding-top: 20px;
+      }
+      .hero-shell {
+        border-radius: 28px;
+      }
+      .hero-content {
+        padding: 24px;
+        margin: 14px;
+        border-radius: 24px;
+      }
+      .shop-grid,
+      .collab-grid,
+      .goals-grid,
+      .contact-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .collab-banner,
+      .footer-shell {
+        flex-direction: column;
+        align-items: start;
+      }
+      .cart-item {
+        grid-template-columns: 1fr;
+      }
+      .cart-item-media {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-loader" id="siteLoader" aria-hidden="true">
+    <div class="loader-mark">
+      <div class="loader-ring"></div>
+      <strong>IRPAST</strong>
+      <p>Preparing eco-friendly solutions...</p>
+    </div>
+  </div>
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-shell">
+        <a class="brand" href="#home" aria-label="IRPAST home">
+          <span class="brand-badge" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3C8.5 5.6 6 9.4 6 13.1C6 17.1 8.7 21 12.3 21C15.9 21 18 18 18 14.8C18 11.7 15.9 9.6 12.9 9.6C11.5 9.6 10.2 10.1 9.2 11.1C9.5 8.8 10.8 5.8 12 3Z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>IRPAST</strong>
+            <span>Eco-Friendly Solutions</span>
+          </span>
+        </a>
+        <nav class="nav-menu" id="navMenu" aria-label="Primary">
+          <a class="nav-link active" href="#home">Home</a>
+          <a class="nav-link" href="#shop">Shop</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#goals">Goals</a>
+          <a class="nav-link" href="#collabs">Collabs</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20 15.2A8 8 0 0 1 8.8 4C8.3 4 7.8 4.1 7.3 4.2A8 8 0 1 0 20 15.2Z" fill="currentColor"/>
+            </svg>
+          </button>
+          <button class="icon-button cart-button" id="cartToggle" type="button" aria-label="Open cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M3 4H5L7.2 14.2C7.4 15.1 8.2 15.8 9.1 15.8H17.6C18.5 15.8 19.3 15.2 19.6 14.3L21 8.6H8.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="10" cy="20" r="1.5" fill="currentColor"/>
+              <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Open menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero section" id="home">
+      <div class="container">
+        <div class="hero-shell fade-in">
+          <div class="hero-content">
+            <span class="hero-note">Low-impact technology for cleaner living</span>
+            <div class="hero-copy">
+              <h1>IRPAST</h1>
+              <p>Eco-Friendly Solutions that make sustainable choices feel premium, simple, and beautifully built for everyday life.</p>
+            </div>
+            <div class="hero-actions">
+              <a class="pill-button" href="#shop">Shop Now</a>
+              <a class="secondary-button" href="#about">Discover Our Story</a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <strong>92%</strong>
+                <span>Recycled packaging across every shipment</span>
+              </div>
+              <div class="hero-stat">
+                <strong>18K+</strong>
+                <span>Homes supported with smarter green choices</span>
+              </div>
+              <div class="hero-stat">
+                <strong>36t</strong>
+                <span>Estimated annual CO2 savings enabled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Shop</span>
+          <h2>Thoughtful eco-tech built for modern routines</h2>
+          <p>Each product is designed to reduce waste, lower energy use, and look at home in a premium contemporary space.</p>
+        </div>
+        <div class="shop-grid" id="productGrid"></div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">About</span>
+          <h2>We design sustainability that feels effortless</h2>
+          <p>IRPAST started with a simple idea: the tools people use every day should support the planet without compromising on quality, beauty, or ease.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card fade-in">
+            <h3>Our story, mission, and vision</h3>
+            <p>We blend clean industrial design with responsible sourcing to create products that fit naturally into homes, teams, and communities that care about their footprint.</p>
+            <ul class="story-list">
+              <li><span class="bullet-dot"></span><span><strong>Company story:</strong> born from climate-focused product research and a belief that better design can shift better habits.</span></li>
+              <li><span class="bullet-dot"></span><span><strong>Mission:</strong> help people adopt greener systems through products that are intuitive, durable, and desirable.</span></li>
+              <li><span class="bullet-dot"></span><span><strong>Vision:</strong> build a future where sustainable technology feels like the obvious default, not a compromise.</span></li>
+            </ul>
+          </article>
+          <aside class="story-metrics fade-in">
+            <div class="metric-card">
+              <strong>4.8/5</strong>
+              <p>Average customer satisfaction from early product pilots and subscription support.</p>
+            </div>
+            <div class="metric-card">
+              <strong>Zero plastic</strong>
+              <p>Single-use plastic eliminated from packaging, inserts, and delivery prep.</p>
+            </div>
+            <div class="metric-card">
+              <strong>Future-ready</strong>
+              <p>Built to support partnerships with homes, campuses, and climate-conscious retail.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="goals">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Goals</span>
+          <h2>Clear sustainability goals with measurable impact</h2>
+          <p>We track product, packaging, and logistics choices against the outcomes that matter: lower waste, smarter energy use, and stronger circular systems.</p>
+        </div>
+        <div class="goals-grid">
+          <article class="goal-card fade-in">
+            <div class="goal-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3C8.1 6 6 9.2 6 13.1C6 17.2 8.9 21 12.4 21C15.8 21 18 18.2 18 14.7C18 11.4 15.7 9.2 12.9 9.2C11.6 9.2 10.4 9.7 9.3 10.6C9.7 8.6 10.8 5.9 12 3Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Lower operational emissions</h3>
+            <p>We prioritize energy-efficient components and suppliers with traceable low-emission manufacturing pathways.</p>
+            <div class="goal-highlight">
+              <span>Target by 2028</span>
+              <strong>-40%</strong>
+            </div>
+          </article>
+          <article class="goal-card fade-in">
+            <div class="goal-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12.2L9 16.2L19 6.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Build circular product lifecycles</h3>
+            <p>Repair-friendly parts, upgraded modules, and take-back programs help extend useful life and reduce landfill waste.</p>
+            <div class="goal-highlight">
+              <span>Repairability score</span>
+              <strong>85%</strong>
+            </div>
+          </article>
+          <article class="goal-card fade-in">
+            <div class="goal-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Scale community impact</h3>
+            <p>We support tree restoration, clean-power education, and collaborative climate pilots with local partners.</p>
+            <div class="goal-highlight">
+              <span>Communities reached</span>
+              <strong>120+</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="collabs">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Collabs</span>
+          <h2>Built with partners who care about what comes next</h2>
+          <p>We collaborate with renewable energy teams, sustainable retailers, logistics innovators, and research groups to widen our impact.</p>
+        </div>
+        <div class="collab-grid">
+          <article class="collab-card fade-in">
+            <div class="collab-logo">NW</div>
+            <h3>NordWave Energy</h3>
+            <p>Clean-power integration pilots for homes and small offices.</p>
+          </article>
+          <article class="collab-card fade-in">
+            <div class="collab-logo">GG</div>
+            <h3>GreenGrid Labs</h3>
+            <p>Smart energy monitoring and lifecycle research support.</p>
+          </article>
+          <article class="collab-card fade-in">
+            <div class="collab-logo">RE</div>
+            <h3>Root & Echo Retail</h3>
+            <p>Curated retail channels for premium low-impact products.</p>
+          </article>
+          <article class="collab-card fade-in">
+            <div class="collab-logo">AP</div>
+            <h3>AeroPack Circular</h3>
+            <p>Reusable packaging workflows for more responsible fulfillment.</p>
+          </article>
+        </div>
+        <div class="collab-banner fade-in">
+          <div>
+            <h3>Want to collaborate with IRPAST?</h3>
+            <p>We’re always open to partnerships in sustainability, climate tech, product innovation, and responsible distribution.</p>
+          </div>
+          <a class="pill-button" href="#contact">Start a Conversation</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Contact</span>
+          <h2>Let’s build cleaner systems together</h2>
+          <p>Reach out for partnerships, product questions, or thoughtful ideas. We’ll make sure your message gets to the right person.</p>
+        </div>
+        <div class="contact-grid">
+          <aside class="contact-card fade-in">
+            <div class="contact-stack">
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+                <div>
+                  <h3>Email</h3>
+                  <p>hello@irpast.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21C15.3 17.8 18 14.9 18 11.3C18 7.8 15.3 5 12 5C8.7 5 6 7.8 6 11.3C6 14.9 8.7 17.8 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="12" cy="11" r="2.2" fill="currentColor"/>
+                  </svg>
+                </span>
+                <div>
+                  <h3>Studio</h3>
+                  <p>Innovation District, Bengaluru, India</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+                <div>
+                  <h3>Hours</h3>
+                  <p>Monday to Friday, 9:00 AM to 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 style="margin-bottom: 12px;">Socials</h3>
+              <div class="social-links">
+                <a class="social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+                <a class="social-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="social-link" href="https://x.com" target="_blank" rel="noreferrer">X</a>
+              </div>
+            </div>
+          </aside>
+          <div class="contact-card fade-in">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="contactName">Name</label>
+                  <input id="contactName" name="contactName" type="text" placeholder="Your name">
+                  <span class="field-error" data-error-for="contactName"></span>
+                </div>
+                <div class="field">
+                  <label for="contactEmail">Email</label>
+                  <input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com">
+                  <span class="field-error" data-error-for="contactEmail"></span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="contactMessage" placeholder="Tell us about your idea, partnership, or question"></textarea>
+                <span class="field-error" data-error-for="contactMessage"></span>
+              </div>
+              <button class="submit-button" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-shell">
+        <div>
+          <strong style="font-family: 'Poppins', 'Inter', sans-serif;">IRPAST</strong>
+          <p>Eco-Friendly Solutions for a cleaner everyday future.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#goals">Goals</a>
+          <a href="#collabs">Collabs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <a class="footer-social-link" href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="3.7" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17.3" cy="6.8" r="1.2" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer-social-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M7 9V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M12 18V12.6C12 11 13 9.8 14.5 9.8C16 9.8 17 10.9 17 12.6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7" cy="6.5" r="1.2" fill="currentColor"/>
+            </svg>
+          </a>
+          <a class="footer-social-link" href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+        <p>© <span id="year"></span> IRPAST. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <h3>Your Cart</h3>
+        <p id="cartStatus">0 items selected</p>
+      </div>
+      <button class="icon-button" id="closeDrawer" type="button" aria-label="Close cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer">
+      <div class="drawer-total">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <button class="checkout-button" id="checkoutButton" type="button">Proceed to Checkout</button>
+    </div>
+  </aside>
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-header">
+      <div>
+        <h3 id="checkoutTitle">Checkout</h3>
+        <p>Finish your eco-conscious order in a few steps.</p>
+      </div>
+      <button class="icon-button" id="closeModal" type="button" aria-label="Close checkout">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="checkout-summary">
+        <div class="summary-row">
+          <span>Items</span>
+          <strong id="checkoutItemsCount">0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Order total</span>
+          <strong id="checkoutTotal">₹0</strong>
+        </div>
+      </div>
+      <div class="checkout-success" id="checkoutSuccess">
+        <h3>Order placed successfully</h3>
+        <p>Thank you for choosing IRPAST. We’ve captured your request and your confirmation will be sent shortly.</p>
+      </div>
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="checkoutName">Name</label>
+            <input id="checkoutName" name="checkoutName" type="text" placeholder="Full name">
+            <span class="field-error" data-error-for="checkoutName"></span>
+          </div>
+          <div class="field">
+            <label for="checkoutEmail">Email</label>
+            <input id="checkoutEmail" name="checkoutEmail" type="email" placeholder="you@example.com">
+            <span class="field-error" data-error-for="checkoutEmail"></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="checkoutAddress">Address</label>
+          <textarea id="checkoutAddress" name="checkoutAddress" placeholder="Delivery address"></textarea>
+          <span class="field-error" data-error-for="checkoutAddress"></span>
+        </div>
+        <div class="field">
+          <label>Payment Option</label>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="Card" checked>
+              <span class="payment-label">
+                <span>Card</span>
+                <small>Visa, Mastercard</small>
+              </span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="UPI">
+              <span class="payment-label">
+                <span>UPI</span>
+                <small>Fast mobile payment</small>
+              </span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="Net Banking">
+              <span class="payment-label">
+                <span>Net Banking</span>
+                <small>Secure bank transfer</small>
+              </span>
+            </label>
+          </div>
+        </div>
+        <button class="checkout-button" type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+  <script>
+    // Sample product catalog for the storefront.
+    const products = [
+      {
+        id: 1,
+        name: "SolarPod Desk Charger",
+        price: 2499,
+        badge: "Solar powered",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+        description: "A compact solar-assisted charger for everyday devices and workspaces."
+      },
+      {
+        id: 2,
+        name: "PureFlow Smart Bottle",
+        price: 1899,
+        badge: "Reusable",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80",
+        description: "Insulated hydration with smart reminders and filtered sipping on the go."
+      },
+      {
+        id: 3,
+        name: "LeafSense Air Monitor",
+        price: 3299,
+        badge: "Indoor wellness",
+        image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80",
+        description: "Track air quality, humidity, and comfort in a calm, minimal display."
+      },
+      {
+        id: 4,
+        name: "EcoHue Ambient Lamp",
+        price: 2799,
+        badge: "Low energy",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+        description: "Soft-light illumination crafted with recycled materials and efficient LEDs."
+      },
+      {
+        id: 5,
+        name: "TerraCharge Power Bank",
+        price: 2199,
+        badge: "Fast charge",
+        image: "https://images.unsplash.com/photo-1585386959984-a41552231658?auto=format&fit=crop&w=900&q=80",
+        description: "Portable backup power with durable casing made from reclaimed composites."
+      },
+      {
+        id: 6,
+        name: "CycleSound Speaker",
+        price: 3599,
+        badge: "Recycled shell",
+        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80",
+        description: "Wireless room audio designed with repairable parts and balanced acoustics."
+      }
+    ];
+    const storageKeys = {
+      cart: "irpast-cart",
+      theme: "irpast-theme"
+    };
+    const elements = {
+      body: document.body,
+      year: document.getElementById("year"),
+      navbar: document.getElementById("navbar"),
+      navMenu: document.getElementById("navMenu"),
+      navLinks: document.querySelectorAll(".nav-link"),
+      menuToggle: document.getElementById("menuToggle"),
+      themeToggle: document.getElementById("themeToggle"),
+      productGrid: document.getElementById("productGrid"),
+      cartCount: document.getElementById("cartCount"),
+      cartStatus: document.getElementById("cartStatus"),
+      cartItems: document.getElementById("cartItems"),
+      cartTotal: document.getElementById("cartTotal"),
+      cartToggle: document.getElementById("cartToggle"),
+      cartDrawer: document.getElementById("cartDrawer"),
+      closeDrawer: document.getElementById("closeDrawer"),
+      drawerBackdrop: document.getElementById("drawerBackdrop"),
+      checkoutButton: document.getElementById("checkoutButton"),
+      modalBackdrop: document.getElementById("modalBackdrop"),
+      checkoutModal: document.getElementById("checkoutModal"),
+      closeModal: document.getElementById("closeModal"),
+      checkoutForm: document.getElementById("checkoutForm"),
+      checkoutItemsCount: document.getElementById("checkoutItemsCount"),
+      checkoutTotal: document.getElementById("checkoutTotal"),
+      checkoutSuccess: document.getElementById("checkoutSuccess"),
+      contactForm: document.getElementById("contactForm"),
+      toastStack: document.getElementById("toastStack"),
+      siteLoader: document.getElementById("siteLoader")
+    };
+    let cart = [];
+    const currencyFormatter = new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0
+    });
+    function saveCart() {
+      localStorage.setItem(storageKeys.cart, JSON.stringify(cart));
+    }
+    function loadCart() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKeys.cart));
+        cart = Array.isArray(saved) ? saved : [];
+      } catch (error) {
+        cart = [];
+      }
+    }
+    function saveTheme(theme) {
+      localStorage.setItem(storageKeys.theme, theme);
+    }
+    function loadTheme() {
+      const savedTheme = localStorage.getItem(storageKeys.theme);
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const shouldUseDark = savedTheme ? savedTheme === "dark" : prefersDark;
+      elements.body.classList.toggle("dark-mode", shouldUseDark);
+    }
+    function updateThemeIcon() {
+      const isDark = elements.body.classList.contains("dark-mode");
+      elements.themeToggle.innerHTML = isDark
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3V5.5M12 18.5V21M5.6 5.6L7.3 7.3M16.7 16.7L18.4 18.4M3 12H5.5M18.5 12H21M5.6 18.4L7.3 16.7M16.7 7.3L18.4 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.2" fill="currentColor"/></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 15.2A8 8 0 0 1 8.8 4C8.3 4 7.8 4.1 7.3 4.2A8 8 0 1 0 20 15.2Z" fill="currentColor"/></svg>';
+    }
+    function formatPrice(value) {
+      return currencyFormatter.format(value);
+    }
+    function getCartCount() {
+      return cart.reduce((total, item) => total + item.quantity, 0);
+    }
+    function getCartTotal() {
+      return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
+    function renderProducts() {
+      elements.productGrid.innerHTML = products.map((product) => `
+        <article class="product-card fade-in">
+          <div class="product-media">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <div>
+                <h3>${product.name}</h3>
+              </div>
+              <span>${product.badge}</span>
+            </div>
+            <p>${product.description}</p>
+            <div class="product-bottom">
+              <strong class="product-price">${formatPrice(product.price)}</strong>
+              <button class="product-button" type="button" data-add-to-cart="${product.id}">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+    function updateCartUI() {
+      const itemCount = getCartCount();
+      const total = getCartTotal();
+      elements.cartCount.textContent = itemCount;
+      elements.cartStatus.textContent = `${itemCount} item${itemCount === 1 ? "" : "s"} selected`;
+      elements.cartTotal.textContent = formatPrice(total);
+      elements.checkoutItemsCount.textContent = itemCount;
+      elements.checkoutTotal.textContent = formatPrice(total);
+      elements.checkoutButton.disabled = itemCount === 0;
+      elements.checkoutButton.style.opacity = itemCount === 0 ? "0.6" : "1";
+      elements.checkoutButton.style.cursor = itemCount === 0 ? "not-allowed" : "pointer";
+      if (cart.length === 0) {
+        elements.cartItems.innerHTML = `
+          <div class="empty-state">
+            <h3>Your cart is empty</h3>
+            <p>Start with a few eco-friendly favorites from the shop and they’ll appear here.</p>
+          </div>
+        `;
+        return;
+      }
+      elements.cartItems.innerHTML = cart.map((item) => `
+        <article class="cart-item">
+          <div class="cart-item-media">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="cart-item-body">
+            <div class="cart-item-top">
+              <div>
+                <h3>${item.name}</h3>
+                <p>${formatPrice(item.price)}</p>
+              </div>
+              <button class="remove-button" type="button" data-remove-id="${item.id}">Remove</button>
+            </div>
+            <div class="cart-controls">
+              <div class="qty-controls">
+                <button class="qty-button" type="button" data-qty-action="decrease" data-id="${item.id}" aria-label="Decrease quantity">-</button>
+                <strong>${item.quantity}</strong>
+                <button class="qty-button" type="button" data-qty-action="increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
+              </div>
+              <strong>${formatPrice(item.price * item.quantity)}</strong>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+    function addToCart(productId) {
+      const product = products.find((item) => item.id === productId);
+      if (!product) {
+        return;
+      }
+      const existingItem = cart.find((item) => item.id === productId);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      saveCart();
+      updateCartUI();
+      showToast(`${product.name} added to cart`, "success");
+    }
+    function updateQuantity(productId, action) {
+      cart = cart
+        .map((item) => {
+          if (item.id !== productId) {
+            return item;
+          }
+          const nextQuantity = action === "increase" ? item.quantity + 1 : item.quantity - 1;
+          return { ...item, quantity: nextQuantity };
+        })
+        .filter((item) => item.quantity > 0);
+      saveCart();
+      updateCartUI();
+    }
+    function removeItem(productId) {
+      const removedItem = cart.find((item) => item.id === productId);
+      cart = cart.filter((item) => item.id !== productId);
+      saveCart();
+      updateCartUI();
+      if (removedItem) {
+        showToast(`${removedItem.name} removed`, "error");
+      }
+    }
+    function toggleDrawer(open) {
+      elements.cartDrawer.classList.toggle("open", open);
+      elements.drawerBackdrop.classList.toggle("open", open);
+      elements.cartDrawer.setAttribute("aria-hidden", String(!open));
+      elements.body.classList.toggle("drawer-open", open);
+    }
+    function toggleModal(open) {
+      elements.checkoutModal.classList.toggle("open", open);
+      elements.modalBackdrop.classList.toggle("open", open);
+      elements.checkoutModal.setAttribute("aria-hidden", String(!open));
+      elements.body.classList.toggle("modal-open", open);
+    }
+    function showToast(message, type = "success") {
+      const toast = document.createElement("div");
+      toast.className = `toast ${type}`;
+      toast.textContent = message;
+      elements.toastStack.appendChild(toast);
+      window.setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(8px)";
+      }, 2300);
+      window.setTimeout(() => {
+        toast.remove();
+      }, 2700);
+    }
+    function clearErrors(form) {
+      form.querySelectorAll("[data-error-for]").forEach((errorNode) => {
+        errorNode.textContent = "";
+      });
+    }
+    function setFieldError(form, fieldName, message) {
+      const errorNode = form.querySelector(`[data-error-for="${fieldName}"]`);
+      if (errorNode) {
+        errorNode.textContent = message;
+      }
+    }
+    function isEmailValid(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    function validateContactForm() {
+      clearErrors(elements.contactForm);
+      let valid = true;
+      const name = elements.contactForm.elements["contactName"].value.trim();
+      const email = elements.contactForm.elements["contactEmail"].value.trim();
+      const message = elements.contactForm.elements["contactMessage"].value.trim();
+      if (!name) {
+        valid = false;
+        setFieldError(elements.contactForm, "contactName", "Please enter your name.");
+      }
+      if (!email || !isEmailValid(email)) {
+        valid = false;
+        setFieldError(elements.contactForm, "contactEmail", "Please enter a valid email address.");
+      }
+      if (message.length < 10) {
+        valid = false;
+        setFieldError(elements.contactForm, "contactMessage", "Please share a message with at least 10 characters.");
+      }
+      return valid;
+    }
+    function validateCheckoutForm() {
+      clearErrors(elements.checkoutForm);
+      let valid = true;
+      const name = elements.checkoutForm.elements["checkoutName"].value.trim();
+      const email = elements.checkoutForm.elements["checkoutEmail"].value.trim();
+      const address = elements.checkoutForm.elements["checkoutAddress"].value.trim();
+      if (!name) {
+        valid = false;
+        setFieldError(elements.checkoutForm, "checkoutName", "Please enter your full name.");
+      }
+      if (!email || !isEmailValid(email)) {
+        valid = false;
+        setFieldError(elements.checkoutForm, "checkoutEmail", "Please enter a valid email address.");
+      }
+      if (address.length < 12) {
+        valid = false;
+        setFieldError(elements.checkoutForm, "checkoutAddress", "Please enter a complete delivery address.");
+      }
+      if (cart.length === 0) {
+        valid = false;
+        showToast("Your cart is empty", "error");
+      }
+      return valid;
+    }
+    function updateActiveNavLink() {
+      const sections = document.querySelectorAll("main section[id]");
+      let currentId = "home";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          currentId = section.id;
+        }
+      });
+      elements.navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${currentId}`;
+        link.classList.toggle("active", isActive);
+      });
+    }
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+      document.querySelectorAll(".fade-in").forEach((node) => observer.observe(node));
+    }
+    function bindEvents() {
+      elements.themeToggle.addEventListener("click", () => {
+        elements.body.classList.toggle("dark-mode");
+        const theme = elements.body.classList.contains("dark-mode") ? "dark" : "light";
+        saveTheme(theme);
+        updateThemeIcon();
+      });
+      elements.menuToggle.addEventListener("click", () => {
+        const isOpen = elements.navMenu.classList.toggle("open");
+        elements.body.classList.toggle("menu-open", isOpen);
+      });
+      elements.navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          elements.navMenu.classList.remove("open");
+          elements.body.classList.remove("menu-open");
+        });
+      });
+      elements.productGrid.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-add-to-cart]");
+        if (!button) {
+          return;
+        }
+        addToCart(Number(button.dataset.addToCart));
+      });
+      elements.cartItems.addEventListener("click", (event) => {
+        const removeButton = event.target.closest("[data-remove-id]");
+        if (removeButton) {
+          removeItem(Number(removeButton.dataset.removeId));
+          return;
+        }
+        const qtyButton = event.target.closest("[data-qty-action]");
+        if (qtyButton) {
+          updateQuantity(Number(qtyButton.dataset.id), qtyButton.dataset.qtyAction);
+        }
+      });
+      elements.cartToggle.addEventListener("click", () => toggleDrawer(true));
+      elements.closeDrawer.addEventListener("click", () => toggleDrawer(false));
+      elements.drawerBackdrop.addEventListener("click", () => toggleDrawer(false));
+      elements.checkoutButton.addEventListener("click", () => {
+        if (!cart.length) {
+          showToast("Add a product before checkout", "error");
+          return;
+        }
+        elements.checkoutSuccess.classList.remove("visible");
+        toggleModal(true);
+      });
+      elements.closeModal.addEventListener("click", () => toggleModal(false));
+      elements.modalBackdrop.addEventListener("click", () => toggleModal(false));
+      elements.checkoutForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!validateCheckoutForm()) {
+          return;
+        }
+        const chosenMethod = elements.checkoutForm.querySelector('input[name="paymentMethod"]:checked').value;
+        elements.checkoutSuccess.classList.add("visible");
+        showToast(`Order placed via ${chosenMethod}`, "success");
+        elements.checkoutForm.reset();
+        elements.checkoutForm.querySelector('input[name="paymentMethod"][value="Card"]').checked = true;
+        cart = [];
+        saveCart();
+        updateCartUI();
+        window.setTimeout(() => {
+          toggleModal(false);
+          toggleDrawer(false);
+          elements.checkoutSuccess.classList.remove("visible");
+        }, 1800);
+      });
+      elements.contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!validateContactForm()) {
+          return;
+        }
+        elements.contactForm.reset();
+        showToast("Thanks for reaching out. We’ll be in touch soon.", "success");
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          toggleDrawer(false);
+          toggleModal(false);
+          elements.navMenu.classList.remove("open");
+          elements.body.classList.remove("menu-open");
+        }
+      });
+      window.addEventListener("scroll", () => {
+        elements.navbar.classList.toggle("scrolled", window.scrollY > 18);
+        updateActiveNavLink();
+      });
+    }
+    function init() {
+      loadTheme();
+      updateThemeIcon();
+      loadCart();
+      renderProducts();
+      updateCartUI();
+      bindEvents();
+      initScrollAnimations();
+      updateActiveNavLink();
+      elements.year.textContent = new Date().getFullYear();
+    }
+    window.addEventListener("load", () => {
+      init();
+      window.setTimeout(() => {
+        elements.siteLoader.classList.add("hidden");
+      }, 900);
+    });
+  </script>
+</body>
+</html>
